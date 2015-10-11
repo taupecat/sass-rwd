@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Building RWD with Sass</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/rp3-dark.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Pure CSS Autoplaying Carousel -->
+		<link rel="stylesheet" href="css/carousel.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-36595663-7', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+				<!-- # Title -->
+
+				<section>
+
+					<div class="title">
+
+						<h3>Building RWD with Sass:</h3>
+
+						<p>The Tools You Need to Know About</p>
+
+					</div>
+
+					<div class="carousel">
+
+						<div class="slide-1">
+							<h4>Tracy Rotton, RP3 Agency</h4>
+
+							<p><a href="http://taupecat.github.io/cssdevconf">http://taupecat.github.io/cssdevconf</a></p>
+						</div>
+
+						<div class="slide-2">
+
+							<h4>Tweet It!</h4>
+
+							<p>I'm learning how <strong>RWD</strong> and <strong>Sass</strong> are a perfect fit<br> with <strong>@taupecat</strong> at <strong>#CSSDevConf</strong>!</p>
+
+						</div>
+
+					</div>
+
+				</section>
+
+
+				<!-- Vote for me -->
+
+				<section>
+					<h2>Vote for Me!</h2>
+
+					<p>Like this talk? Vote for it for the "Best Of":<br><br></p>
+
+					<p>Text to <strong>(504) 229-6828</strong><br><br>
+						<strong>#rwdsass</strong> 5 I loved it. It was much better than "Cats". I'm going to see it again and again.</p>
+				</section>
+
+
+				<!-- ## Introduction -->
+
+				<section>
+					<h2>Tracy Rotton</h2>
+					<ul>
+						<li><a href="http://twitter.com/taupecat">@taupecat</a></li>
+						<li>Lead Web Developer for<br>
+							<a href="http://rp3agency.com">RP3 Agency</a> in Bethesda, Maryland</li>
+					</ul>
+
+					<img src="images/logo-white.svg" style="background: none; display: block; margin: 1em auto 0; width: 20%; height: auto;">
+				</section>
+
+				<section>
+					<h3>A little more about me:</h3>
+					<ul>
+						<li>Front-end developer for 20 years (seriously)</li>
+						<li><a href="http://wordpress.org/">WordPress</a> core contributor</li>
+						<li>Built first responsive site in 2011</li>
+						<li>Began using Sass in 2012</li>
+					</ul>
+				</section>
+
+				<!-- ## Prologue -->
+
+				<section>
+					<h2>Prologue</h2>
+				</section>
+
+				<section>
+					<p><img src="images/rwjf-collage.png"></p>
+
+					<p><a href="http://rwjf.org">http://rwjf.org</a> (2011)</p>
+
+					<aside class="notes" data-markdown>
+					</aside>
+
+				</section>
+
+				<section>
+					<h3>Tools Used:</h3>
+
+					<ul>
+						<li class="fragment">Vanilla CSS</li>
+						<li class="fragment">This guy…</li>
+						<li class="fragment">80kB CSS file</li>
+					</ul>
+				</section>
+
+				<section>
+
+					<p><img src="images/dog-eared.png"></p>
+
+<pre><code data-trim>
+.column_33 .dog-eared {
+  padding: 24px 8%; /* 24px / 300px */
+}
+
+@media all and (max-width: 620px) {
+  .column_33 .dog-eared {
+    padding: 24px 3.870967741935%; /* 24px / 620px */
+  }
+}
+</code></pre>
+
+				</section>
+
+				<section>
+					<h2>#NeverAgain</h2>
+
+					<img src="images/nobody-got-time.gif">
+
+				</section>
+
+				<section>
+					<p><img src="images/nscorp-collage.png"></p>
+
+					<p><a href="http://nscorp.com">http://nscorp.com</a> (2013)</p>
+
+					<aside class="notes" data-markdown>
+					</aside>
+
+				</section>
+
+				<section>
+					<h3>Tools Used:</h3>
+
+					<ul>
+						<li class="fragment">Sass</li>
+						<li class="fragment">Compass</li>
+						<li class="fragment">Home-grown Responsive Sass Library</li>
+						<li class="fragment">CodeKit</li>
+					</ul>
+				</section>
+
+
+				<!-- ## Part I: RWD Basics -->
+
+				<section>
+
+					<h3>RWD Basics</h3>
+
+					<ul>
+						<li class="fragment">Fluid Layouts</li>
+						<li class="fragment">Flexible Images and Media</li>
+						<li class="fragment">Media Queries</li>
+					</ul>
+
+					<aside class="notes">
+						Sass has tools to help with all of these.
+					</aside>
+
+				</section>
+
+				<section>
+
+					<h3>Sass Basics</h3>
+
+					<ul>
+						<li class="fragment">Variables</li>
+						<li class="fragment">Functions</li>
+						<li class="fragment">Mixins</li>
+						<li class="fragment">Media Query Bubbling</li>
+						<!-- <li class="fragment">Partials</li> -->
+					</ul>
+
+				</section>
+
+				<section>
+
+					<h3>RWD + Sass = </h3>
+
+					<img src="images/cat-in-box.jpg">
+
+				</section>
+
+				<section>
+					<h3>Fluid Grids</h3>
+
+					<h4>“Responsive Formula”</h4>
+
+					<p class="fragment"><strong>target / context = result (%)</strong></p>
+
+				</section>
+
+				<section>
+
+					<section>
+
+						<h3>Sass Tools for RWD</h3>
+
+						<p>Built-in function: <strong>percentage(target / context)</strong></p>
+
+						<p>Percentage returns a <em>unitless</em> number, expressed as a percentage.</p>
+
+					</section>
+
+					<section>
+
+						<h3>Sass:</h3>
+
+<pre><code data-trim>.main-content {
+  width: percentage(585px / 960px);
+}
+
+.sidebar {
+  width: percentage(350px / 960px);
+}</code></pre>	
+
+					</section>
+
+					<section>
+
+						<h3>CSS:</h3>
+
+<pre><code data-trim>.main-content {
+  width: 60.9375%;
+}
+
+.sidebar {
+  width: 36.45833%;
+}</code></pre>
+
+						<p class="fragment">Code becomes self-documenting.</p>
+
+					</section>
+
+				</section>
+
+				<section>
+					<h3>Flexible Media and Images</h3>
+
+					<p class="fragment">Hold that thought…</p>
+				</section>
+
+				<section>
+
+					<h3>Media Query Bubbling</h3>
+
+					<div class="fragment">
+
+						<p>This is the awesome sauce that makes responsive web design <strong>soooo</strong> much easier.</p>
+
+						<img src="images/sriracha.jpg">
+
+					</div>
+
+				</section>
+
+
+				<!-- Media Query Bubbling: Padawan -->
+
+				<section>
+
+					<section>
+
+						<h3>MQB: Padawan</h3>
+
+						<h4>SCSS:</h4>
+
+<pre><code data-trim>
+.sidebar {
+  background-color: #e5e5e5;
+  font-size: 1.2em;
+
+  @media all and (min-width: 43.125em) { // 690px / 16px
+    float: left;
+    width: percentage(400px / 1280px);
+  }
+}
+</code></pre>
+
+					</section>
+
+					<section>
+
+						<h3>MQB: Padawan</h3>
+
+						<h4>CSS:</h4>
+
+<pre><code data-trim>
+.sidebar {
+  background-color: #e5e5e5;
+  font-size: 1.2em;
+}
+
+@media all and (min-width: 43.125em) {
+  .sidebar {
+    float: left;
+    width: 31.25%;
+  }
+}
+</code></pre>
+
+					</section>
+
+				</section>
+
+
+
+				<!-- Media Query Bubbling: Jedi Knight -->
+
+				<section>
+
+					<section>
+
+						<h3>MQB: Jedi Knight</h3>
+
+						<h4>SCSS:</h4>
+
+<pre><code data-trim>
+$default-browser-context: 16px !default;
+
+@function em($target, $context: $default-browser-context) {
+  @return $target / $context * 1em;
+}
+
+$bp-medium: em(690px);
+
+.sidebar {
+  background-color: #e5e5e5;
+  font-size: 1.2em;
+
+  @media all and (min-width: $bp-medium) {
+    float: left;
+    width: percentage(400px / 1280px);
+  }
+}
+</code></pre>
+
+					</section>
+
+					<section>
+
+						<h3>MQB: Jedi Knight</h3>
+
+						<h4>CSS:</h4>
+
+<pre><code data-trim>
+.sidebar {
+  background-color: #e5e5e5;
+  font-size: 1.2em;
+}
+
+@media all and (min-width: 43.125em) {
+  .sidebar {
+    float: left;
+    width: 31.25%;
+  }
+}
+</code></pre>
+
+					</section>
+
+				</section>
+
+
+
+				<!-- Media Query Bubbling: Jedi Master -->
+
+				<section>
+
+					<section>
+
+						<h3>MQB: Jedi Master</h3>
+
+						<h4>SCSS:</h4>
+
+<pre><code data-trim>
+$default-browser-context: 16px !default;
+
+@function em($target, $context: $default-browser-context) {
+  @return $target / $context * 1em;
+}
+
+$bp-medium: em(690px);
+
+@mixin bp($breakpoint) {
+  @if $breakpoint == medium {
+    @media all and (min-width: $bp-medium) { @content; }
+  }
+}
+
+.sidebar {
+  background-color: #e5e5e5;
+  font-size: 1.2em;
+
+  @include bp(medium) {
+    float: left;
+    width: percentage(400px / 1280px);
+  }
+}
+</code></pre>
+
+
+						<p><small>Credit: <a href="http://css-tricks.com/conditional-media-query-mixins/">css-tricks.com</a></small></p>
+					</section>
+
+					<section>
+
+						<h3>MQB: Jedi Master</h3>
+
+						<h4>CSS:</h4>
+
+<pre><code data-trim>
+.sidebar {
+  background-color: #e5e5e5;
+  font-size: 1.2em;
+}
+
+@media all and (min-width: 43.125em) {
+  .sidebar {
+    float: left;
+    width: 31.25%;
+  }
+}
+</code></pre>
+
+					</section>
+
+				</section>
+
+
+				<section>
+
+					<h3>MQB: Beyond Viewport Widths</h3>
+
+<pre><code data-trim>
+@mixin hidpi($media: all) {
+  @media 
+    only #{$media} and (min--moz-device-pixel-ratio: 1.5),
+    only #{$media} and (-o-min-device-pixel-ratio: 3/2),
+    only #{$media} and (-webkit-min-device-pixel-ratio: 1.5),
+    only #{$media} and (min-device-pixel-ratio: 1.5),
+    only #{$media} and (min-resolution: 144dpi),
+    only #{$media} and (min-resolution: 1.5dppx) {
+
+    @content;
+  }
+}
+</code></pre>
+
+					<p class="fragment">iPhone 6 & 6 Plus ???</p>
+
+				</section>
+
+
+				<section>
+					<p><strong>“But won't repeated media queries bloat my CSS?”</strong></p>
+
+					<ul>
+						<li class="fragment">Gzipping</li>
+						<li class="fragment">
+							<a href="https://github.com/buildingblocks/grunt-combine-media-queries">Grunt plugin</a><br>
+							<a href="https://www.npmjs.org/package/gulp-combine-media-queries">Gulp plugin</a>
+						</li>
+					</ul>
+
+				</section>
+
+
+				<section>
+
+					<section>
+
+						<h3>@extend +<br>%placeholder-selectors</h3>
+
+						<p>Lets you aggregate your classes around a set of common properties.</p>
+
+					</section>
+
+
+					<section>
+<pre><code data-trim>
+%clearfix {
+  &:before, &:after {
+    content: "";
+    display: table;
+  }
+  &:after { clear: both; }
+}
+
+.site-header {
+  @extend %clearfix;
+  background-color: #1fbbe3;
+}
+
+.site-footer {
+  @extend %clearfix;
+  background-color: #757b82;
+}
+</code></pre>
+					</section>
+
+					<section>
+<pre><code data-trim>
+.site-header:before, .site-header:after,
+.site-footer:before, .site-footer:after {
+  content: "";
+  display: table;
+}
+
+.site-header:after, .site-footer:after {
+  clear: both;
+}
+
+.site-header {
+  background-color: #1fbbe3;
+}
+
+.site-footer {
+  background-color: #757b82;
+}
+</code></pre>
+					</section>
+
+				</section>
+
+				<section>
+
+					<p>Doesn't work in @media queries:</p>
+
+<pre><code data-trim>
+.site-header {
+  background-color: #1fbbe3;
+
+  @include bp(medium) {
+    @extend %clearfix;
+  }
+}
+
+.site-footer {
+  background-color: #757b82;
+
+  @include bp(medium) {
+    @extend %clearfix;
+  }
+}
+</code></pre>
+
+				</section>
+
+
+				<section>
+
+					<h4>@extend inside media query?</h4>
+
+					<img src="images/css-nazi.jpg">
+
+					<h3>No CSS for you!</h3>
+
+				</section>
+
+				<section>
+
+					<p>But going the other way?</p>
+
+<pre><code data-trim>
+%some-random-thing {
+  background-color: aliceblue;
+
+  @media only all and (min-width: 37.5em) {
+    background-color: purple;
+  }
+
+  @media only all and (min-width: 62.5em) {
+    background-color: tomato;
+  }
+}
+</code></pre>
+
+				</section>
+
+				<section>
+
+					<h4>media query inside @extend?</h4>
+
+					<img src="images/no-problem.gif">
+
+					<h3>Sure, no problem!</h3>
+
+				</section>
+
+
+				<!-- Libraries -->
+
+				<section>
+					<h3>Libraries</h3>
+
+					<p>Use the collective power of the Internet to drive your responsive project with Sass.</p>
+
+					<p><img src="images/borg.jpg"></p>
+
+				</section>
+
+				<section>
+					<h3>Susy</h3>
+
+					<ul>
+						<li>Sass-based grid system</li>
+						<li>Does the math, so you don't have to.</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="images/demo-time.jpg">
+				</section>
+
+				<section>
+					<h3>Floats vs. Isolate</h3>
+
+					<ul>
+						<li class="fragment"><strong>Floats:</strong><br>The grid system you're probably used to.</li>
+						<li class="fragment"><strong>Isolate:</strong><br>Uses <code>margin-right: -100%</code> to work around sub-pixel rendering problems.</li>
+						<li class="fragment">Better explanation:<br><a href="http://www.palantir.net/blog/responsive-design-s-dirty-little-secret">Responsive Design's Dirty Little Secret</a></li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h3>But wait, there's more!</h3>
+
+					<ul>
+						<li class="fragment">Asymmetrical grids</li>
+						<li class="fragment">Different grids for different pages</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Breakpoint</h3>
+					<ul>
+						<li>Provides mixins similar to the "Jedi Master" method</li>
+						<li>min-width, max-width, viewport ranges, screen resolution</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="images/demo-time.jpg">
+				</section>
+
+				<section>
+					<h3>But wait, there's more!</h3>
+
+					<ul>
+						<li class="fragment">Screen Resolution Media Queries<br>
+							(HiDPI Displays)</li>
+						<li class="fragment">Integration with Susy:</li>
+					</ul>
+
+<pre class="fragment"><code data-trim>
+@include susy-breakpoint(30em, 8) {
+  // nested code uses an 8-column grid,
+  // starting at a 30em min-width breakpoint...
+  .example { @include span(3); }
+}</code></pre>
+				</section>
+
+
+				<!-- Fallbacks -->
+
+				<section>
+					<h2>Fallbacks</h2>
+
+					<img src="images/fallback.gif">
+
+				</section>
+
+
+				<section>
+					<h3>Fallback Options</h3>
+
+					<ul>
+						<li class="fragment">"Mobile" view (a.k.a., ignore it)</li>
+
+						<li class="fragment"><a href="https://github.com/scottjehl/Respond">Respond.js</a></li>
+
+						<li class="fragment"><a href="http://modernizr.com">Modernizr</a> + Breakpoint</li>
+
+					</ul>
+				</section>
+
+				<section>
+					<img src="images/demo-time.jpg">
+				</section>
+
+
+				<!-- Workflow 2014 -->
+
+				<section>
+					<h2>Epilogue</h2>
+				</section>
+
+				<section>
+					<p><img src="images/rp3agency-collage.png"></p>
+
+					<p><a href="http://rp3agency.com">http://rp3agency.com</a> (2014)</p>
+				</section>
+
+				<section>
+					<h3>Tools Used:</h3>
+
+					<ul>
+						<li class="fragment">Sass</li>
+						<li class="fragment">Compass,<br>Susy,<br>Breakpoint</li>
+						<li class="fragment">Gulp</li>
+					</ul>
+				</section>
+
+
+				<!-- Resources -->
+
+				<section>
+					<h3>Wanna learn more?</h3>
+
+					<h4>Responsive Web Design</h4>
+
+					<ul>
+						<li><a href="http://bradfrost.github.io/this-is-responsive/">This Is Responsive</a></li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h4>More Resources:<br>Sass</h4>
+
+					<ul>
+						<li><a href="http://sass-lang.com/">Sass</a></li>
+						<li><a href="http://thesassway.com/">The Sass Way</a></li>
+						<li><a href="http://www.sache.in/">Sache</a></li>
+						<li><a href="https://www.youtube.com/user/sassbites">SassBites</a></li>
+						<li><a href="http://breakpoint-sass.com/">Breakpoint</a></li>
+						<li><a href="http://susy.oddbird.net/">Susy</a></li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h4>Even More Resources</h4>
+
+					<ul>
+						<li><a href="http://css-tricks.com/build-web-layouts-easily-susy/">Building Web Layouts Easily with Susy</a><br>
+							on CSS Tricks</li>
+						<li><a href="http://www.sitepoint.com/managing-responsive-breakpoints-sass/">Managing Responsive Breakpoints with Sass</a><br>
+							on Sitepoint</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2 style="margin-top: -2em">Thanks!</h2>
+
+
+					<div class="carousel">
+
+						<div class="slide-1">
+
+							<h4>Props (partial list):</h4>
+
+							<p><small>
+
+								<a href="https://twitter.com/beep">@beep</a>,
+								<a href="https://twitter.com/bswatson">@bswatson</a>,
+								<a href="https://twitter.com/codingdesigner">@codingdesigner</a>,
+								<a href="https://twitter.com/DCSassMeetup">@DCSassMeetup</a>,<br>
+								<a href="https://twitter.com/kurtroberts">@kurtroberts</a>,
+								<a href="https://twitter.com/rwd">@rwd</a>,
+								<a href="https://twitter.com/SassCSS">@SassCSS</a>,
+								<a href="https://twitter.com/SassSusy">@SassSusy</a>,<br>
+								<a href="https://twitter.com/snugug">@snugug</a>,
+								<a href="https://twitter.com/tropicandid">@tropicandid</a>,
+								<a href="https://twitter.com/WordPressDC">@WordPressDC</a>,
+								<a href="https://twitter.com/xiwcx">@xiwcx</a>
+
+							</small></p>
+
+							<p>&</p>
+
+							<p><a href="https://twitter.com/CSSDevConf">@CSSDevConf</a></p>
+
+						</div>
+
+						<div class="slide-2">
+
+							<p>Like this talk? Vote for it for the "Best Of":<br><br></p>
+
+							<p>Text to <strong>(504) 229-6828</strong><br><br>
+								<strong>#rwdsass</strong> 5 I loved it. It was much better than "Cats". I'm going to see it again and again.</p>
+						</div>
+
+					</div>
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
