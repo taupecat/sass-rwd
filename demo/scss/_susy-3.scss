@@ -1,0 +1,54 @@
+@import "susy";
+
+$susy: (
+	columns: 12,
+	gutters: 1/4,
+	container: em(1280px),
+	output: float,
+	// debug: (
+	// 	image: show,
+	// 	color: transparentize(#8254ff, 0.5)
+	// )
+);
+
+body.susy-3 {
+	background-color: #3b2674;
+
+	.main,
+	.sidebar {
+		border: 5px solid;
+		border-radius: 5px;
+		padding: 0.5em percentage(20px / 1024px);
+	}
+
+	.main {
+		background-color: transparentize(#FFEECE, 0.4);
+		border-color: transparentize(#805c19, 0.1);
+	}
+
+	.sidebar {
+		background-color: transparentize(#C6D4F5, 0.4);
+		border-color: transparentize(#193880, 0.1);
+	}
+
+
+	/** Create 2 column grid using Susy */
+	.wrapper {
+		display: flex;
+		// justify-content: space-between;
+	}
+
+	.main {
+		width: span(8);
+		margin-right: gutter();
+	}
+
+	.sidebar {
+		width: span(4);
+		margin-right: gutter();
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}

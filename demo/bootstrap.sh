@@ -32,5 +32,6 @@ apt-get install -y apache2 >/dev/null 2>&1
 rm -rf /var/www
 ln -fs /vagrant /var/www
 a2enmod rewrite
-sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/sites-enabled/000-default
+sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www/' /etc/apache2/sites-enabled/000-default.conf
 sed -i 's/www-data/vagrant/' /etc/apache2/envvars
+service apache2 restart
