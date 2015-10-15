@@ -481,9 +481,7 @@ $bp-medium: em(690px);
 @mixin hidpi($media: all) {
   @media 
     only #{$media} and (min--moz-device-pixel-ratio: 1.5),
-    only #{$media} and (-o-min-device-pixel-ratio: 3/2),
     only #{$media} and (-webkit-min-device-pixel-ratio: 1.5),
-    only #{$media} and (min-device-pixel-ratio: 1.5),
     only #{$media} and (min-resolution: 144dpi),
     only #{$media} and (min-resolution: 1.5dppx) {
 
@@ -491,8 +489,6 @@ $bp-medium: em(690px);
   }
 }
 </code></pre>
-
-					<p class="fragment">iPhone 6 & 6 Plus ???</p>
 
 				</section>
 
@@ -649,24 +645,13 @@ $bp-medium: em(690px);
 					<h3>Susy</h3>
 
 					<ul>
-						<li>Sass-based grid system</li>
-						<li>Does the math, so you don't have to.</li>
+						<li class="fragment">Sass-based grid system</li>
+						<li class="fragment">Does the math, so you don't have to.</li>
 					</ul>
 				</section>
 
 				<section>
 					<img src="images/demo-time.jpg">
-				</section>
-
-				<section>
-					<h3>Floats vs. Isolate</h3>
-
-					<ul>
-						<li class="fragment"><strong>Floats:</strong><br>The grid system you're probably used to.</li>
-						<li class="fragment"><strong>Isolate:</strong><br>Uses <code>margin-right: -100%</code> to work around sub-pixel rendering problems.</li>
-						<li class="fragment">Better explanation:<br><a href="http://www.palantir.net/blog/responsive-design-s-dirty-little-secret">Responsive Design's Dirty Little Secret</a></li>
-					</ul>
-
 				</section>
 
 				<section>
@@ -685,8 +670,8 @@ $bp-medium: em(690px);
 				<section>
 					<h3>Breakpoint</h3>
 					<ul>
-						<li>Provides mixins similar to the "Jedi Master" method</li>
-						<li>min-width, max-width, viewport ranges, screen resolution</li>
+						<li class="fragment">Provides mixins similar to the "Jedi Master" method</li>
+						<li class="fragment">min-width, max-width, viewport ranges</li>
 					</ul>
 				</section>
 
@@ -728,7 +713,7 @@ $bp-medium: em(690px);
 
 					<ul>
 						<li class="fragment">Sass</li>
-						<li class="fragment">Compass,<br>Susy,<br>Breakpoint</li>
+						<li class="fragment">Susy & Breakpoint</li>
 						<li class="fragment">Gulp</li>
 					</ul>
 				</section>
@@ -793,6 +778,8 @@ $bp-medium: em(690px);
 						<a href="https://twitter.com/xiwcx">@xiwcx</a>
 
 					</p>
+
+					<h3><br/>&<br/><br/><a href="https://hamptonroads.wordcamp.org/2015/">WordCamp Hampton Roads</a></h3>
 
 				</section>
 
