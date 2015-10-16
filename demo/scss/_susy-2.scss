@@ -36,6 +36,8 @@ body.susy-2 {
 	.wrapper {
 		@include container;
 		// display: flex;
+		// max-width: em(1280px);
+		// margin: 0 auto;
 		// justify-content: space-between;
 	}
 

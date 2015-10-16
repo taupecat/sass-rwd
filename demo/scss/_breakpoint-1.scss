@@ -4,7 +4,6 @@ $susy: (
 	columns: 12,
 	gutters: 1/4,
 	container: em(1280px),
-	output: float
 );
 
 // @import "breakpoint";
@@ -39,34 +38,33 @@ body.breakpoint-1 {
 	.wrapper {
 
 		// @include breakpoint($bp-medium) {
-			@include container;
+			display: flex;
+			max-width: em(1280px);
+			margin: 0 auto;
+			justify-content: space-between;
 		// }
 	}
 
 	.main {
 		// @include breakpoint($bp-medium) {
-			@include span(6);
+			width: span(6);
 		// }
 
 		// @include breakpoint($bp-large) {
-		// 	@include span(isolate 6 of 12 at 1);
+		// 	order: 0;
 		// }
 	}
 
 	.sidebar {
 		// @include breakpoint($bp-medium) {
-			@include span(3);
-
-			&:last-child {
-				@include last;
-			}
+			width: span(3);
 		// }
 
 		// @include breakpoint($bp-large) {
-		// 	@include span(isolate 3 of 12 at 7);
+		// 	order: 1;
 
 		// 	&:last-child {
-		// 		@include span(isolate 3 of 12 at 10);
+		// 		order: 2;
 		// 	}
 		// }
 	}
